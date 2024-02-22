@@ -1,0 +1,131 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% For support : Yolande Koh, <ykoh@wspc.com.sg>
+%% Technical assistance : D. Rajesh Babu, <rajesh@wspc.com.sg>
+%% Master File for Book (updated on 8-1-2007)
+%% Book Trim Size: 9in x 6in
+%% Text Area: 7.35in (include runningheads) x 4.5in
+%% Main Text: 10/13pt
+%%
+%% The content, structure, format and layout of this style file is
+%% the property of World Scientific Publishing Co. Pte. Ltd.
+%% Copyright 2007 by World Scientific Publishing Co.
+%% All rights are reserved
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\documentclass[draft]{Styles/ws-book9x6}
+\documentclass{Styles/ws-book9x6}
+\usepackage{Styles/ws-book-van}           % Citation - Author-Date system
+\usepackage{Styles/epigraph}
+% \usepackage{booktabs}
+% \usepackage{array}
+% \usepackage{pifont}
+% \usepackage{psfrag}
+% \usepackage{epsfig}
+% \usepackage{amsmath}
+% \usepackage{amsfonts}
+% \usepackage{amssymb}
+% \usepackage{bm}
+% \usepackage{pifont}
+%\usepackage{needspace}
+\usepackage{rotating}
+
+\usepackage{graphicx}
+\usepackage{kbordermatrix}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage[monochrome]{xcolor}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{multirow}
+\usepackage{epsfig}
+\usepackage{setspace}
+
+\usepackage{bm}
+\usepackage{pifont}
+\usepackage[section]{placeins}
+% \usepackage{subcaption}
+\usepackage{circledsteps}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[linesnumbered, ruled, vlined]{algorithm2e}
+\usepackage[export]{adjustbox}
+
+
+
+\newboolean{bluetext}
+%Set the value of cs
+\setboolean{bluetext}{true}
+%Create a new command to set the text color to red
+\newcommand{\setcstrue}{\textcolor{blue}}
+%Create a new command to set the color as normal
+\newcommand{\setcsfalse}{}
+%Create the command to surround the correct selection
+\newcommand{\bluetext}{\ifthenelse{\boolean{bluetext}}{\setcstrue}             
+           {\setcsfalse}}
+
+\newcommand\circlewhite[1]{
+\tikz[baseline=(X.base)] 
+   \node (X) [draw, shape=circle,align=center, inner sep=0pt, text width=3mm] {#1};}
+\newcommand\circleblack[1]{
+\tikz[baseline=(X.base)] 
+\node (X) [draw, shape=circle, inner sep=0pt,align=center, fill=black, text=white, text width=3mm]{#1};}
+\newcommand\circleinvis[1]{
+\tikz[baseline=(X.base)] 
+\node (X) [draw, shape=circle, inner sep=0pt,align=center, color=white, fill=white, text=white, text width=3mm]{#1};}
+\newcommand{\circleinvissmall}[2][white,fill=white]{\tikz[baseline=-0.5ex]\draw[#1,radius=#2] (0,0) circle ;}
+
+\title{The Matching-Graph}              % set your book title here
+
+\makeindex
+\color{black}
+\begin{document}
+
+\input Title/title.tex
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\input Title/title2.tex
+
+
+
+\pagenumbering{roman}
+
+\input Abstract/abstract.tex
+\cleardoublepage
+\input Acknowledgments/acknowledgments.tex
+\cleardoublepage                  
+{\parskip1pt\parindent0pt
+\tableofcontents}
+\cleardoublepage
+
+\pagenumbering{arabic}
+
+
+
+
+%\input notations.tex
+
+%\listoffigures                    % optional list of figures
+
+%\listoftables                     % optional list of tables
+
+\setcounter{page}{1}
+
+%% chapter 1
+\include{Phd_Thesis_Template/chapters/1_introduction}
+%% chapter 2
+\include{Phd_Thesis_Template/chapters/2_graphs_and_graph_edit_distance}
+%% Include more chapters
+
+%% appendix
+\input Appendix/appendix_1.tex % 
+
+
+
+\bibliography{Phd_Thesis_Template/bibliograhpy}
+\bibliographystyle{unsrt}    	            
+
+
+\end{document}
